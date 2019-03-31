@@ -24,8 +24,9 @@ app.use(express.json()); //recognized incoming request object as a JSON object
 app.use(express.static("public")); //Set index file in public folder as the home (aka main) page
 
 // Connect to the Mongo DB, use deployed database unless running on local server, then use local database
-const MONGODB_URI = process.env.MONGODB_URI || "monogdb://localhost/mongoHeadlines";
-// mongoose.connect(MONGODB_URI);
+// const MONGODB_URI = process.env.MONGODB_URI || "monogdb://localhost/mongoHeadlines";
+// mongoose.connect((MONGODB_URI), { useNewURLParser: true });
+mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 
 // ======= ROUTES ========
 
@@ -37,15 +38,14 @@ app.get("/scrape", function (req, res) {
         let $ = cheerio.load(response.data)
 
         $("article h2").each(function (i, element, err) {
-                let result = {};
-                const beginURL = "https://www.sciencemag.org";
+            let result = {};
+            const beginURL = "https://www.sciencemag.org";
 
-                let currURL = $(this)
-                    .children("a")
-                    .attr("href");
+            let currURL = $(this)
+                .children("a")
+                .attr("href");
 
-                console.log(`The current url is ${currURL}`);
-                if(typeof currURL !== "undefined") {
+            if (typeof currURL !== "undefined") {
                 if (currURL.startsWith("/news")) {
 
                     result.title = $(this)
@@ -55,14 +55,31 @@ app.get("/scrape", function (req, res) {
 
                     result.link = beginURL + currURL;
 
-                    console.log(result);
+                    // console.log(result);
                 };
             };
-
-            });
+            db.Article.create(result) //create a record in the database using the result object just made above
+                .then(dbArticle => {
+                    console.log(dbArticle);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        });
 
         res.send("Scraping is complete.")
     });
+});
+
+// Route to retrieve all articles from database
+app.get("/articles", function(req, res){
+    db.Article.find({}) // calls the article model to get all articles
+        .then(dbArticle => {
+            res.json(dbArticle);
+        })
+        .catch(err => {
+            res.json(err);
+        });
 });
 
 app.listen(PORT, function () {
