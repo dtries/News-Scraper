@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 
 // Required npm packages for scraping
-const axios = require("axios");
-const cheerio = require("cheerio");
+// const axios = require("axios");
+// const cheerio = require("cheerio");
 
 //Required models for mongoDB
 const db = require("./models");

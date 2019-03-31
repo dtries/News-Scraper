@@ -1,11 +1,15 @@
 const db = require("../models");
 
+// Required npm packages for scraping
+const axios = require("axios");
+const cheerio = require("cheerio");
+
 module.exports = function (app) {
 
     // GET route for scaping the London Times website, grabs from external site at specified http address 
     app.get("/scrape", function (req, res) {
         // axios is used to get the body portion of the html for the website
-        axios.get("https://www.sciencemag.org/").then(response => {
+        axios.get("https://www.sciencemag.org/").then(function(response) {
 
             let $ = cheerio.load(response.data)
 
@@ -25,16 +29,37 @@ module.exports = function (app) {
                             .trim();
 
                         result.link = beginURL + currURL;
+                    articleToDb(result);
                     };
                 };
-                db.Article.create(result) //create a record in the database using the result object just made above
+                function articleToDb(result) {db.Article.create(result) //create a record in the database using the result object just made above
                     .then(dbArticle => {
                         console.log(dbArticle);
                     })
                     .catch(err => {
                         console.log(err);
                     })
+                };
             });
+
+            // $("article").each(function (i, element) {
+            //     let resultImg = {};
+
+            //     console.log("Made IT HERE HERE HERE")
+
+            //     resultImg.image = $(this)
+            //         .children("img")
+            //         .attr("src");
+            //         console.log(`The image is at ${resultImg}`);
+
+            //     db.Article.create(resultImg) //create a record in the database using the result object just made above
+            //         .then(dbArticle => {
+            //             console.log(dbArticle);
+            //         })
+            //         .catch(err => {
+            //             console.log(err);
+            //         })
+            // });
 
             res.send("Scraping is complete.")
         });
