@@ -40,15 +40,12 @@ app.get("/scrape", function (req, res) {
                 let result = {};
                 const beginURL = "https://www.sciencemag.org";
 
-                // console.log(`i here is ${i}`);
-                // console.log(`This response array length is ${response.data.length}`);
-
                 let currURL = $(this)
                     .children("a")
                     .attr("href");
 
                 console.log(`The current url is ${currURL}`);
-
+                if(typeof currURL !== "undefined") {
                 if (currURL.startsWith("/news")) {
 
                     result.title = $(this)
@@ -60,10 +57,8 @@ app.get("/scrape", function (req, res) {
 
                     console.log(result);
                 };
+            };
 
-            })
-            .catch(function (err) {
-                console.log(err);
             });
 
         res.send("Scraping is complete.")
