@@ -1,0 +1,30 @@
+{
+  "name": "news-scraper",
+  "version": "1.0.0",
+  "description": "Article Scraper and Notation App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtries/News-Scraper.git"
+  },
+  "keywords": [
+    "mongoose",
+    "cheerio",
+    "axios"
+  ],
+  "author": "Dennis Ries",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtries/News-Scraper/issues"
+  },
+  "homepage": "https://github.com/dtries/News-Scraper#readme",
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "mongoose": "^5.4.20",
+    "morgan": "^1.9.1"
+  }
+}
