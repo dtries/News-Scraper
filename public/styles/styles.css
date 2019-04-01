@@ -1,0 +1,34 @@
+main {
+    background-image: url("../images/book_glasses_smaller.jpg");
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-size: contain;
+  
+  }
+
+  .primary-container {
+      background-color: #00000090;
+      color: yellow;
+      /* margin-top: -15px; */
+      
+  }
+  .card {
+      color: black;
+  }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  #the-subtitle {
+      text-align: center;
+  }
+
+ 
+

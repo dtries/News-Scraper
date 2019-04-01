@@ -7,16 +7,17 @@ const Schema = mongoose.Schema;
 let ArticleSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     link: {
         type: String,
         required: true
     },
-    // image: {
-    //     type: String,
-    //     required: true
-    // },
+    author: {
+        type: String,
+        // required: true
+    },
     note: {
         type:Schema.Types.ObjectId, //sets the ID shown for note to that assigned by the Note constructor
         ref: "Note" //references where to look for the ObjectId for type immediately above

@@ -8,6 +8,6 @@ module.exports = function (app) {
 
     app.get("*", (req, res) => {
         res.render("404"); //load 404 on get error
-    })
+    });
 
 };

@@ -15,6 +15,7 @@ module.exports = function (app) {
 
             $("article h2").each(function (i, element) {
                 let result = {};
+;
                 const beginURL = "https://www.sciencemag.org";
 
                 let currURL = $(this)
@@ -28,12 +29,22 @@ module.exports = function (app) {
                             .text()
                             .trim();
 
+                        result.author = $(this)
+                            .parent("h2")
+                            .children("p")
+                            .text()
+                            .trim();
+
                         result.link = beginURL + currURL;
+                    // console.log(result.author);
+
                     articleToDb(result);
+                   
                     };
                 };
                 function articleToDb(result) {db.Article.create(result) //create a record in the database using the result object just made above
                     .then(dbArticle => {
+                        // console.log(result.author);
                         console.log(dbArticle);
                     })
                     .catch(err => {
@@ -42,24 +53,24 @@ module.exports = function (app) {
                 };
             });
 
-            // $("article").each(function (i, element) {
-            //     let resultImg = {};
+            $("article").each(function (i, element) {
+                let resultImg = {};
 
-            //     console.log("Made IT HERE HERE HERE")
+                console.log("Made IT HERE HERE HERE")
 
-            //     resultImg.image = $(this)
-            //         .children("img")
-            //         .attr("src");
-            //         console.log(`The image is at ${resultImg}`);
+                resultImg.image = $(this)
+                    .children("img")
+                    .attr("src");
+                    console.log(`The image is at ${resultImg}`);
 
-            //     db.Article.create(resultImg) //create a record in the database using the result object just made above
-            //         .then(dbArticle => {
-            //             console.log(dbArticle);
-            //         })
-            //         .catch(err => {
-            //             console.log(err);
-            //         })
-            // });
+                db.Article.create(resultImg) //create a record in the database using the result object just made above
+                    .then(dbArticle => {
+                        console.log(dbArticle);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            });
 
             res.send("Scraping is complete.")
         });
