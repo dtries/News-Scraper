@@ -18,7 +18,10 @@ $(document).ready(function(){
                             </div>
                             <div class="card-action">
                                 <a ${data[i].link}>Link to Story</a>
-                            </div>
+                                <a class="right">Remove Article</a>
+                                <a class="right">Add Note &nbsp &nbsp</a>
+                                
+                        </div>
                         </div>
                     </div>
                 </div>`

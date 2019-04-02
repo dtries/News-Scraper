@@ -4,13 +4,6 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 
-// Required npm packages for scraping
-// const axios = require("axios");
-// const cheerio = require("cheerio");
-
-//Required models for mongoDB
-const db = require("./models");
-
 // Port assignment for local host server
 const PORT = 3000;
 
@@ -38,9 +31,6 @@ app.engine(
     require("./routes/htmlRoutes")(app);
 
 // Connect to the Mongo DB, use deployed database unless running on local server, then use local database
-// const MONGODB_URI = process.env.MONGODB_URI || "monogdb://localhost/mongoHeadlines";
-// mongoose.connect((MONGODB_URI), { useNewURLParser: true });
-// mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI, {

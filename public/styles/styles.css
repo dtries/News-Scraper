@@ -1,9 +1,17 @@
+html,
+#home-name,
+.btn,
+#journal-link,
+.route-link {
+    font-family: 'News Cycle', sans-serif;
+}
+
 main {
-    background-image: url("../images/book_glasses_smaller.jpg");
+    background-image: url("../images/wet_glass.jpeg");
     /* background-repeat: no-repeat; */
     background-position: center;
     background-size: contain;
-  
+
   }
 
   .primary-container {
@@ -29,6 +37,24 @@ body {
   #the-subtitle {
       text-align: center;
   }
+ 
+  .card-content,
+  .card-action {
+      font-size: 150%;
+  }
+
+  .card-action {
+      font-weight: bold;
+  }
+
+  .footer-container {
+      font-size: 150%;
+  }
+
+  .route-link {
+      color: white;
+  }
+
 
  
 
