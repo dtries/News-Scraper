@@ -24,6 +24,7 @@
   "homepage": "https://github.com/dtries/News-Scraper#readme",
   "dependencies": {
     "eslint": "^5.16.0",
+    "express": "^4.16.4",
     "mongoose": "^5.4.20",
     "morgan": "^1.9.1"
   }
