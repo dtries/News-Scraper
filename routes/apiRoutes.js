@@ -13,27 +13,43 @@ module.exports = function (app) {
 
             let $ = cheerio.load(response.data)
 
-            $("article h2").each(function (i, element) {
+            $("article").each(function (i, element) {
                 let result = {};
 ;
                 const beginURL = "https://www.sciencemag.org";
 
                 let currURL = $(this)
+                    .children()
                     .children("a")
                     .attr("href");
-
+                let authByline = $(this).find(".byline");
+                console.log(`The author byline exists: ${authByline}`);
                 if (typeof currURL !== "undefined") {
                     if (currURL.startsWith("/news")) {
                         result.title = $(this)
-                            .children("a")
+                            .find("h2")
+                            .find("a")
                             .text()
                             .trim();
 
+                        if (authByline=true) {
                         result.author = $(this)
-                            .parent("h2")
-                            .children("p")
+                            .find(".byline")
+                            .children("a")
                             .text()
                             .trim();
+                        };
+
+                        result.date = $(this)
+                            .find(".byline")
+                            .find("time")
+                            .text()
+                            .trim();
+
+                        result.photoURL = $(this)
+                            .find("img")
+                            .attr("src");
+                        
 
                         result.link = beginURL + currURL;
                     // console.log(result.author);
@@ -53,25 +69,6 @@ module.exports = function (app) {
                 };
             });
 
-            $("article").each(function (i, element) {
-                let resultImg = {};
-
-                console.log("Made IT HERE HERE HERE")
-
-                resultImg.image = $(this)
-                    .children("img")
-                    .attr("src");
-                    console.log(`The image is at ${resultImg}`);
-
-                db.Article.create(resultImg) //create a record in the database using the result object just made above
-                    .then(dbArticle => {
-                        console.log(dbArticle);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            });
-
             res.send("Scraping is complete.")
         });
     });
@@ -87,7 +84,7 @@ module.exports = function (app) {
             });
     });
 
-    //Route to retrieve an article by id
+    //Route to retrieve an article by id populate with a note
     app.get("/articles/:id", (req, res) => {
         let id = String(req.params.id);
         // console.log(`The id for the article is ${id}`);

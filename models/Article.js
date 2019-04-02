@@ -16,7 +16,13 @@ let ArticleSchema = new Schema({
     },
     author: {
         type: String,
-        // required: true
+        required: true
+    },
+    date: {
+        type: String,
+    },
+    photoURL: {
+        type: String,
     },
     note: {
         type:Schema.Types.ObjectId, //sets the ID shown for note to that assigned by the Note constructor
