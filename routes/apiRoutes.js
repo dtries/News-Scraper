@@ -9,13 +9,12 @@ module.exports = function (app) {
     // GET route for scaping the London Times website, grabs from external site at specified http address 
     app.get("/scrape", function (req, res) {
         // axios is used to get the body portion of the html for the website
-        axios.get("https://www.sciencemag.org/").then(function(response) {
+        axios.get("https://www.sciencemag.org/").then(function (response) {
 
             let $ = cheerio.load(response.data)
 
             $("article").each(function (i, element) {
-                let result = {};
-;
+                let result = {};;
                 const beginURL = "https://www.sciencemag.org";
 
                 let currURL = $(this)
@@ -32,12 +31,12 @@ module.exports = function (app) {
                             .text()
                             .trim();
 
-                        if (authByline=true) {
-                        result.author = $(this)
-                            .find(".byline")
-                            .children("a")
-                            .text()
-                            .trim();
+                        if (authByline = true) {
+                            result.author = $(this)
+                                .find(".byline")
+                                .children("a")
+                                .text()
+                                .trim();
                         };
 
                         result.date = $(this)
@@ -49,23 +48,25 @@ module.exports = function (app) {
                         result.photoURL = $(this)
                             .find("img")
                             .attr("src");
-                        
+
 
                         result.link = beginURL + currURL;
-                    // console.log(result.author);
+                        // console.log(result.author);
 
-                    articleToDb(result);
-                   
+                        articleToDb(result);
+
                     };
                 };
-                function articleToDb(result) {db.Article.create(result) //create a record in the database using the result object just made above
-                    .then(dbArticle => {
-                        // console.log(result.author);
-                        console.log(dbArticle);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
+
+                function articleToDb(result) {
+                    db.Article.create(result) //create a record in the database using the result object just made above
+                        .then(dbArticle => {
+                            // console.log(result.author);
+                            console.log(dbArticle);
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        })
                 };
             });
 
@@ -78,30 +79,33 @@ module.exports = function (app) {
         db.Article.find({}) // calls the article model to get all articles
             .then(dbArticle => {
                 res.json(dbArticle);
+
             })
             .catch(err => {
                 res.json(err);
             });
     });
 
-        // Route to retrieve all articles from database
-        app.get("/notes", (req, res) => {
-            db.Note.find({}) // calls the article model to get all articles
-                .then(dbNote => {
-                    res.json(dbNote);
-                })
-                .catch(err => {
-                    res.json(err);
-                });
-        });
+    // Route to retrieve all articles from database
+    app.get("/notes", (req, res) => {
+        db.Note.find({}) // calls the article model to get all articles
+            .then(dbNote => {
+                res.json(dbNote);
+            })
+            .catch(err => {
+                res.json(err);
+            });
+    });
 
     //Route to retrieve an article by id populate with a note
     app.get("/articles/:id", (req, res) => {
         // let id = String(req.params.id);
         // console.log(`The id for the article is ${id}`);
-        db.Article.findOne({_id: req.params.id})
+        db.Article.findOne({
+                _id: req.params.id
+            })
             .populate("note")
-            .then(function(dbArticle) {
+            .then(function (dbArticle) {
                 res.json(dbArticle);
             })
             .catch(err => {
@@ -114,8 +118,14 @@ module.exports = function (app) {
     app.post("/articles/:id", (req, res) => {
         // let id = String(req.params.id);
         db.Note.create(req.body) //create note for article using model
-            .then(function(dbNote) {
-                return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+            .then(function (dbNote) {
+                return db.Article.findOneAndUpdate({
+                    _id: req.params.id
+                }, {
+                    note: dbNote._id
+                }, {
+                    new: true
+                });
             })
             .then(dbArticle => {
                 res.json(dbArticle);
@@ -124,4 +134,23 @@ module.exports = function (app) {
                 res.json(err);
             })
     });
+    app.delete('/notes/:id', function (req, res) {
+
+        let id =req.params.id;
+        console.log(`The notes id is ${req.params.id}`);
+        db.Notes.remove({
+                _id: id
+            })
+            .then(dbNote => {
+                res.json({
+                        message: `The Note ${dbNote} was removed`
+                    })
+                    .catch(err => {
+                        res.json(err);
+                    });
+            })
+
+
+    });
+
 };

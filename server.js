@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 
 // Port assignment for local host server
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 
 //Initialize Express & setup middleware
 const app = express();

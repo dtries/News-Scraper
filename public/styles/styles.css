@@ -97,27 +97,17 @@ main {
 
 }
 
-#notes {
-    float: right;
-    width: 60%;
+#exit-symbol {
+    color: #ffab40;
+    background-color: #71044B;
+    cursor: pointer;
 }
 
-textarea,
-input {
-    /* display: block; */
-    width: 100%;
-    background-color: #FCF5C7;
+#delete-note:hover,
+#exit-symbol:hover {
+    background-color: red;
 }
 
-input {
-    /* height: 36px; */
-    font-size: 24px;
-}
-
-textarea {
-    /* height: 200px; */
-    font-size: 18px;
-}
 
 @media only screen and (max-width: 900px) {
     #articles {
