@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 
     //retrieve articles in json format from database
-    // var retrieveData = function () {
+    var retrieveData = function () {
     $.getJSON("/articles", data => {
         for (let i = 0; i < data.length; i++) {
             $("#articles").append(
@@ -49,16 +49,18 @@ $(document).ready(function () {
             );
         };
     });
-    // };
+    };
 
     $("#new-scrape").click(() => {
-        $.get("/scrape");
+
+    $.get("/scrape");
         // .then()
         // retrieveData();
+
     });
 
 
-    // retrieveData();
+    retrieveData();
 
 
     // Whenever someone clicks the add note link

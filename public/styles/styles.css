@@ -32,6 +32,10 @@ nav {
     color: #ffab40;
 }
 
+#the-title {
+    margin-bottom: -3%;
+}
+
 #home-name {
     color: #F3E4F2;
 }
@@ -41,6 +45,9 @@ main {
     /* background-repeat: no-repeat; */
     background-position: center;
     background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
 
 }
 

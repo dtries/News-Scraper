@@ -14,6 +14,7 @@ module.exports = function (app) {
             let $ = cheerio.load(response.data)
 
             $("article").each(function (i, element) {
+                console.log(`The element length is ${element.length}`);
                 let result = {};;
                 const beginURL = "https://www.sciencemag.org";
 
@@ -70,7 +71,8 @@ module.exports = function (app) {
                 };
             });
 
-            res.send("Scraping is complete.")
+            location.reload();
+            res.send("Scraping is complete.");
         });
     });
 
