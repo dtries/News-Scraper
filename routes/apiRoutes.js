@@ -84,33 +84,38 @@ module.exports = function (app) {
             });
     });
 
+        // Route to retrieve all articles from database
+        app.get("/notes", (req, res) => {
+            db.Note.find({}) // calls the article model to get all articles
+                .then(dbNote => {
+                    res.json(dbNote);
+                })
+                .catch(err => {
+                    res.json(err);
+                });
+        });
+
     //Route to retrieve an article by id populate with a note
     app.get("/articles/:id", (req, res) => {
-        let id = String(req.params.id);
+        // let id = String(req.params.id);
         // console.log(`The id for the article is ${id}`);
-        db.Article.findById(id)
+        db.Article.findOne({_id: req.params.id})
             .populate("note")
-            .then(dbArticle => {
+            .then(function(dbArticle) {
                 res.json(dbArticle);
             })
             .catch(err => {
-                console.log(err);
+                res.json(err);
             });
 
     });
 
     // Route to save or update note associated with article
     app.post("/articles/:id", (req, res) => {
-        let id = String(req.params.id);
+        // let id = String(req.params.id);
         db.Note.create(req.body) //create note for article using model
-            .then(dbNote => {
-                return db.Article.findById({
-                    id
-                }, {
-                    note: dbNote._id
-                }, {
-                    new: true
-                });
+            .then(function(dbNote) {
+                return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
             })
             .then(dbArticle => {
                 res.json(dbArticle);

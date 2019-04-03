@@ -9,6 +9,6 @@ let NoteSchema = new Schema ({
     body: String
 });
 
-const Note = mongoose.model("Note", NoteSchema); //create note collection useing the schema
+var Note = mongoose.model("Note", NoteSchema); //create note collection using the schema
 
 module.exports = Note;

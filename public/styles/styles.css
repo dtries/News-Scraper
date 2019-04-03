@@ -42,73 +42,101 @@ main {
     background-position: center;
     background-size: contain;
 
-  }
+}
 
-  .primary-container {
-      background-color: #00000090;
-  }
-  .card {
-      color: #F3E4F2;
-      background-color: #71044B;
-  }
+.primary-container {
+    background-color: #00000090;
+}
+
+.card {
+    color: #F3E4F2;
+    background-color: #71044B;
+}
 
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  #the-subtitle {
-      text-align: center;
-  }
- 
-  .card-content,
-  .card-action {
-      font-size: 125%;
-  }
-
-  .card-action {
-      font-weight: bold;
-  }
-
-  .page-footer {
-      font-size: 150%;
-      color: #F3E4F2;
-      background-color: #71044B;
-
-  }
-
-  .route-link {
-      color: #ffab40;
-  }
-
-  .sidenav {
-    background-color: rgba(0, 0, 0, 0); 
-    
 }
 
-  @media only screen and (max-width: 900px) {
+main {
+    flex: 1 0 auto;
+}
+
+#the-subtitle {
+    text-align: center;
+}
+
+.card-action {
+    font-weight: bold;
+}
+
+#card-article-title {
+    font-size: 150%;
+}
+
+#card-article-author,
+.card-action {
+    font-size: 115%;
+    color: #ffab40;
+}
+
+.page-footer {
+    font-size: 150%;
+    color: #F3E4F2;
+    background-color: #71044B;
+
+}
+
+.route-link {
+    color: #ffab40;
+}
+
+.sidenav {
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+#notes {
+    float: right;
+    width: 60%;
+}
+
+textarea,
+input {
+    /* display: block; */
+    width: 100%;
+    background-color: #FCF5C7;
+}
+
+input {
+    /* height: 36px; */
+    font-size: 24px;
+}
+
+textarea {
+    /* height: 200px; */
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 900px) {
     #articles {
         display: grid;
         grid-template-columns: repeat(1, auto);
     }
-    
-    @media only screen and (max-width: 600px) {
+}
+
+@media only screen and (max-width: 600px) {
     #articles {
         display: grid;
         grid-template-columns: repeat(1, auto);
     }
-    
-    @media only screen and (max-width: 400px) {
+}
+
+@media only screen and (max-width: 400px) {
     #articles {
         display: grid;
         grid-template-columns: repeat(1, auto);
     }
 
-
- 
-
+}

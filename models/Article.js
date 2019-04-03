@@ -31,6 +31,6 @@ let ArticleSchema = new Schema({
 });
 
 //Create database model using the schema
-const Article = mongoose.model("Article", ArticleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
 module.exports = Article; 
