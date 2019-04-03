@@ -1,9 +1,39 @@
+/* Possible Fonts
+font-family: 'Fredericka the Great', cursive;
+font-family: 'News Cycle', sans-serif;
+font-family: 'Indie Flower', cursive;
+font-family: 'Kanit', sans-serif;
+font-family: 'Amiri', serif;
+font-family: 'Homemade Apple', cursive;
+font-family: 'El Messiri', sans-serif;
+*/
+
+
 html,
 #home-name,
 .btn,
 #journal-link,
 .route-link {
-    font-family: 'News Cycle', sans-serif;
+    font-family: 'El Messiri', sans-serif;
+}
+
+.btn {
+    background-color: #125D7D;
+}
+
+nav {
+    background-color: #71044B;
+}
+
+.fas,
+#journal-link,
+#the-title,
+#the-subtitle {
+    color: #ffab40;
+}
+
+#home-name {
+    color: #F3E4F2;
 }
 
 main {
@@ -16,12 +46,10 @@ main {
 
   .primary-container {
       background-color: #00000090;
-      color: yellow;
-      /* margin-top: -15px; */
-      
   }
   .card {
-      color: black;
+      color: #F3E4F2;
+      background-color: #71044B;
   }
 
 body {
@@ -40,20 +68,46 @@ body {
  
   .card-content,
   .card-action {
-      font-size: 150%;
+      font-size: 125%;
   }
 
   .card-action {
       font-weight: bold;
   }
 
-  .footer-container {
+  .page-footer {
       font-size: 150%;
+      color: #F3E4F2;
+      background-color: #71044B;
+
   }
 
   .route-link {
-      color: white;
+      color: #ffab40;
   }
+
+  .sidenav {
+    background-color: rgba(0, 0, 0, 0); 
+    
+}
+
+  @media only screen and (max-width: 900px) {
+    #articles {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+    }
+    
+    @media only screen and (max-width: 600px) {
+    #articles {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+    }
+    
+    @media only screen and (max-width: 400px) {
+    #articles {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+    }
 
 
  
