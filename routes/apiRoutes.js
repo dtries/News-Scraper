@@ -101,8 +101,6 @@ module.exports = function (app) {
 
     //Route to retrieve an article by id populate with a note
     app.get("/articles/:id", (req, res) => {
-        // let id = String(req.params.id);
-        // console.log(`The id for the article is ${id}`);
         db.Article.findOne({
                 _id: req.params.id
             })
@@ -117,7 +115,7 @@ module.exports = function (app) {
     });
 
     // Route to save or update note associated with article
-    app.post("/articles/:id", (req, res) => {
+    app.put("/articles/:id", (req, res) => {
         // let id = String(req.params.id);
         db.Note.create(req.body) //create note for article using model
             .then(function (dbNote) {
@@ -136,33 +134,29 @@ module.exports = function (app) {
                 res.json(err);
             })
     });
-    app.delete('/notes/:id', function (req, res) {
 
-        let id = req.params.id;
-        console.log(`The notes id is ${req.params.id}`);
-        db.Notes.deleteOne({ _id: id })
-            .then(() => {
+    app.delete('/notes/:id', (req, res) => {
+        let id = { "_id": req.params.id};
+        db.Note.deleteOne(id)
+            .then(() => {;
                 res.json({ success: true });
             })
             .catch(err => {
-                res.status.json({err: err});
+                console.log("Made it to errorville");
+                res.json({err: err});
             });
-           
     });
 
     app.delete('/articles/:id', (req, res) => {
-        console.log("Made it here Prince app delete");
         let id = { "_id": req.params.id};
-        console.log(`The article id is ${JSON.stringify(id)}`);
         db.Article.deleteOne(id)
             .then(() => {
                 res.json({ success: true });
             })
             .catch(err => {
-                console.log("Made it to errorville")
-                res.status.json({err: err});
+                console.log("Made it to errorville");
+                res.json({err: err});
             });
-           
     });
 
 };

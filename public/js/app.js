@@ -41,9 +41,9 @@ $(document).ready(function () {
                             <div class="card-action">
                                 <a class="left" id="story-link" href=${data[i].link}>Link to Story</a>
 
-                                <a class="right" id="article-remove" note-id = "null" data-id=${data[i]._id}>Remove Article</a>
+                                <a class="right" id="article-remove" data-id=${data[i]._id}>Remove Article</a>
 
-                                <a class="right" href="#notes" class="modal-trigger" id="note-add" data-id== ${data[i]._id}>Add Note</a>
+                                <a class="right" href="#notes" class="modal-trigger" id="note-add" data-id=${data[i]._id}>Add Note</a>
                                 
                         </div>
                         </div>
@@ -77,11 +77,12 @@ $(document).ready(function () {
 
     // Whenever someone clicks the add note link
     $(document).on("click", "#note-add", function () {
-        event.preventDefault();
+        // event.preventDefault();
         // Empty the notes from the note section
         $("#notes").empty();
         // Save the id from the #note-add link data-id
         var thisId = $(this).attr("data-id");
+        console.log(`The id YOW is ${thisId}`);
 
         // Now make an ajax call for the Article
         $.ajax({
@@ -92,7 +93,7 @@ $(document).ready(function () {
             .then(function (data) {
                 $("#notes").append(
                     `<div class="modal-content>
-                        <h4 id="title-modal">Note for: ${data.title}<a id="exit-note"><i class="right material-icons" id="exit-symbol" >close</i></a></h4>
+                        <h4 id="title-modal">Note for: ${data.title}<a id="exit-note" href="/"><i class="right material-icons" id="exit-symbol" >close</i></a></h4>
 
 
                         <div class="divider"></div>
@@ -102,9 +103,9 @@ $(document).ready(function () {
                         <textarea placeholder="Enter Your Note Here" id="bodyinput" class="materialize-textarea flow-text" name="body"></textarea>
 
                         <div class="modal-footer">
-                            <button data-id=${data._id} id="delete-note" class="left waves-effect waves-light btn">Delete Note</button>
+                            <button data-id=${data._id} id="delete-note" href="/" class="left waves-effect waves-light btn">Delete Note</button>
                             
-                            <button data-id=${data._id} id="save-note" class="waves-effect waves-light btn">Save Note</button>
+                            <button data-id=${data._id} id="save-note" href="/" class="waves-effect waves-light btn">Save Note</button>
                         </div>
                    `
                 );
@@ -118,8 +119,10 @@ $(document).ready(function () {
                     // Place the body of the note in the body textarea
                     $("#bodyinput").val(data.note.body);
 
-                    // $("#delete-note").attr(`note-id=${data.note._id}`);
-                    // console.log("Note id is " + $("#note-id").val());
+                   $("#delete-note").attr("note-id", data.note._id);
+                    
+                   var noteID = $("#delete-note").attr("note-id");
+                    console.log(`The note id is ${(noteID)}`);
                 }
 
                 // display modal
@@ -130,12 +133,12 @@ $(document).ready(function () {
     // When you click the save-note button
     $(document).on("click", "#save-note", function () {
         event.preventDefault();
-        // Grab the id associated with the article from the submit button
+        // Grab the id associated with the article from the button
         var thisId = $(this).attr("data-id");
 
-        // Run a POST request to change the note, using what's entered in the inputs
+        // Run a PUT request to change the note, using what's entered in the inputs
         $.ajax({
-                method: "POST",
+                method: "PUT",
                 url: "/articles/" + thisId,
                 data: {
                     // Value taken from title input
@@ -167,24 +170,29 @@ $(document).ready(function () {
 
     $(document).on("click", "#delete-note", function () {
         // event.preventDefault();
-        // Grab the id associated with the article from the submit button
-        var thisId = $();
+        // Grab the id associated with the note from the button
+        var thisId = $(this).attr("note-id");
         console.log(`The note id is ${thisId}`);
-        // console.log($(this));
 
         // Run a DELETE request to delete the note
         $.ajax({
                 method: "DELETE",
                 url: "/notes/" + thisId,
-            })
-            // With that done
-            .then(function (data) {
-                console.log(data);
-            });
+                data: { id: thisId },
+                success: function(data) {
+                    console.log("Success");
 
+                },
+                error: () => {
+                    console.log("error");
+                }
+            });
         // Close the modal
         $("#notes").modal("close");
     });
+
+
+    
 
     $(document).on("click", "#article-remove", function () {
         // event.preventDefault();
