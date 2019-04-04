@@ -7,6 +7,11 @@ Scrapes news items from the [Science Magazine](sciencemag.org) website of the Am
 The task was to develop a full-stack web application with a Model View Controller (MVC) structure that is deployed and hosted externally. A listing of the web technologies employed is provided in the **Tech Employed** section below.
 
 ## Site Overview 
+
+<div align="left">
+    <img src="/public/images/Scraper-Main.png" width="400px"</img> 
+</div>
+<br>
 The primary functions of the site a hosted within a single page and uses a modal to accept user text input. The site presents the user  an instinctual user interface and experience. As the database is populated with some news items already, the user lands on the site and immediately understands the actions possible. Choices are to interact via the  the navigation items,card style new items, or the footer items. 
 
 Via the nav-bar, the user can see if new articles are available by clicking the **Scrape For Articles** button, clear the articles off the page, but not from the database, by clicking the **Clear Articles** button, or visit the science journal website by clicking the flat button labeled **The Journal**. Note that the Science label and atom icon on the upper left of the name bar can be clicked to reload the primary page.
