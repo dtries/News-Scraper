@@ -56,7 +56,10 @@ $(document).ready(function () {
 
 
 
-    $("#new-scrape").click(function(){
+    $("#new-scrape").click(function(event){
+        event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+
         $.get("/scrape");
         timedRetrieveDelay();   
     });
@@ -71,13 +74,16 @@ $(document).ready(function () {
 
     retrieveData();
 
-    $("#clear-articles").click(() => {
+    $("#clear-articles").click((event) => {
+        event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
         $("#articles").empty();
     });
 
     // Whenever someone clicks the add note link
-    $(document).on("click", "#note-add", function () {
-        // event.preventDefault();
+    $(document).on("click", "#note-add", function (event) {
+        event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
         // Empty the notes from the note section
         $("#notes").empty();
         // Save the id from the #note-add link data-id
@@ -131,8 +137,9 @@ $(document).ready(function () {
     });
 
     // When you click the save-note button
-    $(document).on("click", "#save-note", function () {
+    $(document).on("click", "#save-note", function (event) {
         event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
         // Grab the id associated with the article from the button
         var thisId = $(this).attr("data-id");
 
@@ -163,13 +170,17 @@ $(document).ready(function () {
         $("#notes").modal("close");
     });
 
-    $(document).on("click", "#exit-note", () => {
+    $(document).on("click", "#exit-note", (event) => {
         event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+
         $("#notes").modal("close");
     });
 
-    $(document).on("click", "#delete-note", function () {
-        // event.preventDefault();
+    $(document).on("click", "#delete-note", function (event) {
+        event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+
         // Grab the id associated with the note from the button
         var thisId = $(this).attr("note-id");
         console.log(`The note id is ${thisId}`);
@@ -194,8 +205,9 @@ $(document).ready(function () {
 
     
 
-    $(document).on("click", "#article-remove", function () {
-        // event.preventDefault();
+    $(document).on("click", "#article-remove", function (event) {
+        event.preventDefault();
+        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
         // Grab the id associated with the article from the button
         var thisId = $(this).attr("article-id");
 
