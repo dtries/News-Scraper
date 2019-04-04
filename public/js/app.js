@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     $(function () {
         $("body").removeClass("fade-out");
     });
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $("#new-scrape").click(function(event){
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
 
         $.get("/scrape");
         timedRetrieveDelay();   
@@ -76,19 +76,18 @@ $(document).ready(function () {
 
     $("#clear-articles").click((event) => {
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
         $("#articles").empty();
     });
 
     // Whenever someone clicks the add note link
     $(document).on("click", "#note-add", function (event) {
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
         // Empty the notes from the note section
         $("#notes").empty();
         // Save the id from the #note-add link data-id
         var thisId = $(this).attr("data-id");
-        console.log(`The id YOW is ${thisId}`);
 
         // Now make an ajax call for the Article
         $.ajax({
@@ -98,21 +97,23 @@ $(document).ready(function () {
             // Now add the note information to the page at id notes
             .then(function (data) {
                 $("#notes").append(
-                    `<div class="modal-content>
+                    `
+                    <div class="modal-content">
                         <h4 id="title-modal">Note for: ${data.title}<a id="exit-note" href="/"><i class="right material-icons" id="exit-symbol" >close</i></a></h4>
 
 
-                        <div class="divider"></div>
+                        <div class="divider" id="modal-divider"></div>
 
-                        <input placeholder="Enter a Title for Your Note" id="titleinput" name="title" class="flow-text">
+                        <input placeholder="Enter a Title for Your Note" id="titleinput" name="title" class="flow-text" />
 
                         <textarea placeholder="Enter Your Note Here" id="bodyinput" class="materialize-textarea flow-text" name="body"></textarea>
+                    </div>
 
-                        <div class="modal-footer">
-                            <button data-id=${data._id} id="delete-note" href="/" class="left waves-effect waves-light btn">Delete Note</button>
-                            
-                            <button data-id=${data._id} id="save-note" href="/" class="waves-effect waves-light btn">Save Note</button>
-                        </div>
+                    <div class="modal-footer" id="footer-modal">
+                        <button data-id=${data._id} id="delete-note" href="/" class="left waves-effect waves-red btn">Delete Note</button>
+                        
+                        <button data-id=${data._id} id="save-note" href="/" class="waves-effect waves-light btn">Save Note</button>
+                    </div>
                    `
                 );
 
@@ -139,7 +140,7 @@ $(document).ready(function () {
     // When you click the save-note button
     $(document).on("click", "#save-note", function (event) {
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
         // Grab the id associated with the article from the button
         var thisId = $(this).attr("data-id");
 
@@ -172,14 +173,14 @@ $(document).ready(function () {
 
     $(document).on("click", "#exit-note", (event) => {
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
 
         $("#notes").modal("close");
     });
 
     $(document).on("click", "#delete-note", function (event) {
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
 
         // Grab the id associated with the note from the button
         var thisId = $(this).attr("note-id");
@@ -207,7 +208,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#article-remove", function (event) {
         event.preventDefault();
-        console.log(`Event Prevented: ${ event.isDefaultPrevented() }`);
+        
         // Grab the id associated with the article from the button
         var thisId = $(this).attr("article-id");
 

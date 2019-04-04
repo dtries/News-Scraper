@@ -13,7 +13,10 @@ html,
 #home-name,
 .btn,
 #journal-link,
-.route-link {
+.route-link,
+#bodyinput,
+#titleinput 
+ {
     font-family: 'El Messiri', sans-serif;
 }
 
@@ -52,7 +55,7 @@ main {
 }
 
 .primary-container {
-    background-color: #00000090;
+    background-color: #00000099;
 }
 
 .card {
@@ -70,7 +73,15 @@ main {
     flex: 1 0 auto;
 }
 
+#the-title,
 #the-subtitle {
+    text-shadow:    -2px -2px 0 #000000,
+                    1px -1px 0 #000000,
+                    -1px 1px 0 #000000,
+                    1px 1px 0 #000000;
+}
+
+#the-subtitle{    
     text-align: center;
 }
 
@@ -108,6 +119,9 @@ main {
     color: #ffab40;
     background-color: #71044B;
     cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
 }
 
 #delete-note:hover,
@@ -115,6 +129,46 @@ main {
     background-color: red;
 }
 
+.modal {
+    width: 60%;
+    padding: 10px;
+    background-color: #ffab40;
+}
+
+#title-modal {
+    font-weight: bolder;
+}
+
+#title-modal,
+#bodyinput,
+#titleinput {
+    color: #71044B;
+    font-size: 150%;
+}
+
+#footer-modal {
+    width: 100%;
+    background-color: #ffab40;
+}
+#modal-divider {
+    background-color: #71044B;
+    height: 2px;
+}
+
+::placeholder {
+    color: #F3E4F2;
+    opacity: 0.70; 
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #F3E4F2;
+    opacity: 0.70;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #F3E4F2;
+    opacity: 0.70;
+  }
 
 @media only screen and (max-width: 900px) {
     #articles {
