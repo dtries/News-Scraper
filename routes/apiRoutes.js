@@ -140,19 +140,29 @@ module.exports = function (app) {
 
         let id = req.params.id;
         console.log(`The notes id is ${req.params.id}`);
-        db.Notes.remove({
-                _id: id
+        db.Notes.deleteOne({ _id: id })
+            .then(() => {
+                res.json({ success: true });
             })
-            .then(dbNote => {
-                res.json({
-                        message: `The Note ${dbNote} was removed`
-                    })
-                    .catch(err => {
-                        res.json(err);
-                    });
+            .catch(err => {
+                res.status.json({err: err});
+            });
+           
+    });
+
+    app.delete('/articles/:id', (req, res) => {
+        console.log("Made it here Prince app delete");
+        let id = { "_id": req.params.id};
+        console.log(`The article id is ${JSON.stringify(id)}`);
+        db.Article.deleteOne(id)
+            .then(() => {
+                res.json({ success: true });
             })
-
-
+            .catch(err => {
+                console.log("Made it to errorville")
+                res.status.json({err: err});
+            });
+           
     });
 
 };

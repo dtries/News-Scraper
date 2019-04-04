@@ -28,20 +28,22 @@ $(document).ready(function () {
         $.getJSON("/articles", data => {
             for (let i = 0; i < data.length; i++) {
                 $("#articles").append(
-                    `<div class="col s12">
+                    `<div class="col s12" id="card-col-div">
                     <div class="card horizontal">
                         <div class="card-image">
                             <img src=${data[i].photoURL} class="responsive-img">
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <span data-id = ${data[i]._id} id="card-article-title">${data[i].title}</span>
-                                <p data-id = ${data[i]._id} id="card-article-author">By ${data[i].author} | Date ${data[i].date}</p>
+                                <p data-id=${data[i]._id} id="card-article-title">${data[i].title}</p>
+                                <p data-id=${data[i]._id} id="card-article-author">By ${data[i].author} | Date ${data[i].date}</p>
                             </div>
                             <div class="card-action">
                                 <a class="left" id="story-link" href=${data[i].link}>Link to Story</a>
-                                <a class="right" id="article-remove" note-id = "null">Remove Article</a>
-                                <a class="right" href="#notes" class="modal-trigger" id="note-add" data-id = ${data[i]._id}>Add Note</a>
+
+                                <a class="right" id="article-remove" note-id = "null" data-id=${data[i]._id}>Remove Article</a>
+
+                                <a class="right" href="#notes" class="modal-trigger" id="note-add" data-id== ${data[i]._id}>Add Note</a>
                                 
                         </div>
                         </div>
@@ -164,7 +166,7 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#delete-note", function () {
-        event.preventDefault();
+        // event.preventDefault();
         // Grab the id associated with the article from the submit button
         var thisId = $();
         console.log(`The note id is ${thisId}`);
@@ -183,5 +185,27 @@ $(document).ready(function () {
         // Close the modal
         $("#notes").modal("close");
     });
+
+    $(document).on("click", "#article-remove", function () {
+        // event.preventDefault();
+        // Grab the id associated with the article from the button
+        var thisId = $(this).attr("data-id");
+        console.log(`The article id is ${thisId}`);
+        $("#card-col-div").remove();
+
+        // Run a DELETE request to delete the article
+        $.ajax({
+                method: "DELETE",
+                url: "/articles/" + thisId,
+                data: { id: thisId },
+                success: function(data) {
+                    console.log("Success");
+
+                },
+                error: () => {
+                    console.log("error");
+                }
+            });
+     });
 
 });
