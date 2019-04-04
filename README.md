@@ -1,7 +1,7 @@
 # News-Scraper
 A Headline Grabbing and Commenting App - Discover the Latest Cutting Edge Science News
 
-Scraps news items from [sciencemag.org]: the web site for the American Association for the Advancement of Science - publishers of the top tier journal *Science*.  
+Scrapes news items from [sciencemag.org]: the web site for the American Association for the Advancement of Science - publishers of the top tier journal *Science*.  
 
 ## The Task 
 The task was to develop a full-stack web application with a Model View Controller (MVC) structure that is deployed and hosted externally. A listing of the web technologies employed is provided in the **Tech Employed** section below.
