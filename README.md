@@ -9,7 +9,7 @@ The task was to develop a full-stack web application with a Model View Controlle
 ## Site Overview 
 
 <div align="left">
-    <img src="/images/Scraper_Main.png" width="400px"</img> 
+    <img src="/public/images/Scraper_Main.png" width="400px"</img> 
 </div>
 <br>
 The primary functions of the site a hosted within a single page and uses a modal to accept user text input. The site presents the user  an instinctual user interface and experience. As the database is populated with some news items already, the user lands on the site and immediately understands the actions possible. Choices are to interact via the  the navigation items,card style new items, or the footer items. 
