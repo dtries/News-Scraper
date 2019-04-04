@@ -1,7 +1,7 @@
 # News-Scraper
 A Headline Grabbing and Commenting App - Discover the Latest Cutting Edge Science News
 
-Scrapes news items from the [science magazine](sciencemag.org) website for the American Association for the Advancement of Science - publishers of the top tier journal *Science*.  
+Scrapes news items from the [Science Magazine](sciencemag.org) website for the American Association for the Advancement of Science - publishers of the top tier journal *Science*.  
 
 ## The Task 
 The task was to develop a full-stack web application with a Model View Controller (MVC) structure that is deployed and hosted externally. A listing of the web technologies employed is provided in the **Tech Employed** section below.
@@ -11,7 +11,7 @@ The primary functions of the site a hosted within a single page and uses a modal
 
 Via the nav-bar, the user can see if new articles are available by clicking the **Scrape For Articles** button, clear the articles off the page, but not from the database, by clicking the **Clear Articles** button, or visit the science journal website by clicking the flat button labeled **The Journal**. Note that the Science label and atom icon on the upper left of the name bar can be clicked to reload the primary page.
 
-The article cards display a picture from the article and the title of the article as well as the author and publication date. In addition, the card presents the user with three interactive possibilities: **LINK TO STORY**, **ADD NOTE**, and **REMOVE ARTICLE**. Clicking **LINK TO STORY** takes the user to the article on the [science magazine](sciencemag.org) website, **REMOVE ARTICLE** elimates the article from the database and removes the card from the display, and **ADD NOTE** opens a modal for user input. The modal has an area to enter the user note title and the text of the note. If the user decides not to enter a note, they can click on the **X** icon in the upper right of the modal. Otherwise, upon entering the title and text for the note, the user can save the note to the database where it is associated with the article. As such, the next time the user clicks **ADD NOTE** for that article the note they entered earlier will populate the modal. Should the user decide to modify their note, they can edit as they please and when they click **SAVE NOTE** the note object in the database with be updated and ready to populate the note when called again. Clicking **SAVE NOTE** automatically closes the modal screen. The final action item available via the article cards is **DELETE NOTE**; clicking this button will delete the note from the database and the next time the **ADD NOTE** button is clicked, the a note modal will appear with unfilled note title and text areas.
+The article cards display a picture from the article and the title of the article as well as the author and publication date. In addition, the card presents the user with three interactive possibilities: **LINK TO STORY**, **ADD NOTE**, and **REMOVE ARTICLE**. Clicking **LINK TO STORY** takes the user to the article on the [Science Magazine](sciencemag.org) website, **REMOVE ARTICLE** elimates the article from the database and removes the card from the display, and **ADD NOTE** opens a modal for user input. The modal has an area to enter the user note title and the text of the note. If the user decides not to enter a note, they can click on the **X** icon in the upper right of the modal. Otherwise, upon entering the title and text for the note, the user can save the note to the database where it is associated with the article. As such, the next time the user clicks **ADD NOTE** for that article the note they entered earlier will populate the modal. Should the user decide to modify their note, they can edit as they please and when they click **SAVE NOTE** the note object in the database with be updated and ready to populate the note when called again. Clicking **SAVE NOTE** automatically closes the modal screen. The final action item available via the article cards is **DELETE NOTE**; clicking this button will delete the note from the database and the next time the **ADD NOTE** button is clicked, the a note modal will appear with unfilled note title and text areas.
 
 The footer area includes two user action items: **Notes Object** and **Articles Object**. Clicking on the **Notes Object** flat button will open a page which displays the Notes objects in the database in JavaScript Object Notation (JSON) format (aka Parsed), doing so for the **Articles Object** flat button displays the Articles objects in this same format. Note that a toggle option to view in the raw is available in the upper right of these object display items. The user can click the back button on the browser to return to the primary page.
 
@@ -31,9 +31,13 @@ Try the [App](https://mighty-inlet-33800.herokuapp.com/).
    1. Open up a browser window and type in 'localhost:3030', this will open the homepage for Scrape *Science* App.
      
 ## User Actions:
-   1. Enter First Name.       
-   1. Enter Image URL.
-   1. Press button titled "Doppelganger Me" to begin image matching process.
+   1. Scrape for new articles.       
+   1. Clear all articles from screen, but not database.
+   1. Delete a selected articled from the database and remove associated card from the display.
+   1. View the article at the [Science Magazine](sciencemag.org) website.
+   1. View the Note or Articles database objects.
+   1. Add a user note for a selected article, the note is saved to the database and associated with the article.
+       1. The note can be updated or deleted by the user.
    
 ## Tech Employed
 * Node.js - (see below)
