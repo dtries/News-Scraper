@@ -24,10 +24,11 @@ $(document).ready(function () {
 
     //retrieve articles in json format from database
     var retrieveData = function () {
-    $.getJSON("/articles", data => {
-        for (let i = 0; i < data.length; i++) {
-            $("#articles").append(
-                `<div class="col s12">
+        $("#articles").empty();
+        $.getJSON("/articles", data => {
+            for (let i = 0; i < data.length; i++) {
+                $("#articles").append(
+                    `<div class="col s12">
                     <div class="card horizontal">
                         <div class="card-image">
                             <img src=${data[i].photoURL} class="responsive-img">
@@ -46,22 +47,31 @@ $(document).ready(function () {
                         </div>
                     </div>
                 </div>`
-            );
-        };
-    });
+                );
+            };
+        });
     };
 
-    $("#new-scrape").click(() => {
 
-    $.get("/scrape");
-        // .then()
-        // retrieveData();
 
+    $("#new-scrape").click(function(){
+        $.get("/scrape");
+        timedRetrieveDelay();   
     });
 
+    function timedRetrieveDelay() {
+        setTimeout(getTheData, 2000);
+    };
+
+    function getTheData() {
+        retrieveData();
+    }
 
     retrieveData();
 
+    $("#clear-articles").click(() => {
+        $("#articles").empty();
+    });
 
     // Whenever someone clicks the add note link
     $(document).on("click", "#note-add", function () {
@@ -150,7 +160,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#exit-note", () => {
         event.preventDefault();
-        $("#notes").modal("close");   
+        $("#notes").modal("close");
     });
 
     $(document).on("click", "#delete-note", function () {

@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
 
 module.exports = function (app) {
 
-    // GET route for scaping the London Times website, grabs from external site at specified http address 
+    // GET route for scaping the Science website, grabs from external site at specified http address 
     app.get("/scrape", function (req, res) {
         // axios is used to get the body portion of the html for the website
         axios.get("https://www.sciencemag.org/").then(function (response) {
@@ -71,7 +71,7 @@ module.exports = function (app) {
                 };
             });
 
-            location.reload();
+
             res.send("Scraping is complete.");
         });
     });
@@ -138,7 +138,7 @@ module.exports = function (app) {
     });
     app.delete('/notes/:id', function (req, res) {
 
-        let id =req.params.id;
+        let id = req.params.id;
         console.log(`The notes id is ${req.params.id}`);
         db.Notes.remove({
                 _id: id
