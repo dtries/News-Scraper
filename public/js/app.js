@@ -104,7 +104,7 @@ $(document).ready(function () {
 
                         <div class="divider" id="modal-divider"></div>
 
-                        <input placeholder="Enter a Title for Your Note" id="titleinput" name="title" class="flow-text" />
+                        <input placeholder="Enter a Title for Your Note" id="titleinput" name="title" type = "text" class="flow-text" />
 
                         <textarea placeholder="Enter Your Note Here" id="bodyinput" class="materialize-textarea flow-text" name="body"></textarea>
                     </div>

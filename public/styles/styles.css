@@ -175,6 +175,34 @@ main {
         display: grid;
         grid-template-columns: repeat(1, auto);
     }
+
+    .modal {
+        width: 80%;
+    }
+
+    .fas {
+        margin-top: -3%;
+    }
+
+    #the-title {
+        font-size: 250%;
+        margin-top: 5%;
+    }
+   
+    #the-subtitle {
+        font-size: 230%;
+        margin-top: 2%;
+        margin-bottom: 1%;
+    }
+
+    #card-article-title {
+        font-size: 175%;
+    }
+
+    #note-add
+    {
+        margin-top: 5%;
+   }
 }
 
 @media only screen and (max-width: 600px) {
@@ -182,12 +210,86 @@ main {
         display: grid;
         grid-template-columns: repeat(1, auto);
     }
+
+    .modal {
+        width: 99%;
+    }
+
+    .card-image {
+        height: 140px;
+    }
+
+    #card-article-title {
+        width: 160px;
+    }
+
+   #story-link,
+   #article-remove
+    {
+        margin-bottom: 10%;
+   }
+
+   #article-remove {
+       text-align: center;
+   }
+
+   .fas {
+    margin-top: 9.5%;
+ }
+
+ #the-title {
+     font-size: 180%;
+     margin-top: 5%;
+ }
+
+ #the-subtitle {
+     font-size: 160%;
+     margin-top: 2%;
+     margin-bottom: 1%;
+ }
 }
 
 @media only screen and (max-width: 400px) {
     #articles {
         display: grid;
         grid-template-columns: repeat(1, auto);
+    }
+
+    .modal {
+        width: 99%;
+    }
+
+    .card-image {
+        height: 104px;
+    }
+
+    #card-article-title {
+        width: 140px;
+    }
+
+   #story-link,
+   #article-remove
+    {
+        margin-bottom: 10%;
+   }
+
+   #article-remove {
+       text-align: center;
+   }
+
+   .fas {
+       margin-top: 9.5%;
+    }
+
+    #the-title {
+        font-size: 160%;
+        margin-top: 5%;
+    }
+
+    #the-subtitle {
+        font-size: 140%;
+        margin-top: 2%;
+        margin-bottom: 1%;
     }
 
 }
