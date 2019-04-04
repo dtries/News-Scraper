@@ -9,6 +9,10 @@ The task was to develop a full-stack web application with a Model View Controlle
 ## Site Overview 
 
 <div align="left">
+    <img src="/public/images/ScraperMain.png" width="400px"</img> 
+</div>
+
+<div align="right">
     <img src="/public/images/Scraper-Note.png" width="400px"</img> 
 </div>
 <br>
