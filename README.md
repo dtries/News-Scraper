@@ -1,5 +1,5 @@
 # News-Scraper
-A Headline Grabbing and Commenting App - Discover the Latest Cutting Edge Science News
+A Headline Grabbing and Commenting App - Discover the Latest Cutting Edge Science News!
 
 Scrapes news items from the [Science Magazine](sciencemag.org) website for the American Association for the Advancement of Science - publishers of the top tier journal *Science*.  
 
