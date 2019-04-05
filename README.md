@@ -27,7 +27,7 @@ The footer area includes two user action items: **Notes Object** and **Articles 
 Try the [App](https://mighty-inlet-33800.herokuapp.com/).
  
 ## Getting Started on Your Own Machine
-1. Clone [repo](https://github.com/dtries/News-Scraper.git) to your machine. 
+1. Clone the [repo](https://github.com/dtries/News-Scraper.git) to your machine. 
 1. Navigate to the News-Scraper directory on your machine using GitBash or your terminal.
 1. Enter 'npm install' in GitBash or your terminal.
    * This will install the proper js package files from a package JSON file.
