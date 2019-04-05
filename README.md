@@ -34,7 +34,7 @@ Try the [App](https://mighty-inlet-33800.herokuapp.com/).
 1. You will need to have mongodb installed and mongod running on your machine for local database use. See the [MongoDB](https://www.mongodb.com/) site for more information.
    
    ## Running on a Local Server
-   1. Enter 'node server.js' this will open a local server on your machine. 
+   1. From within the News-Scrape folder in your terminal or GitBash enter 'node server.js'; this will open a local server on your machine. 
    1. Your terminal will display which port the app is using, in this case 3030.
    1. Open up a browser window and type in 'localhost:3030', this will open the homepage for the Scrape *Science* App.
      
@@ -44,6 +44,7 @@ Try the [App](https://mighty-inlet-33800.herokuapp.com/).
    1. Delete a selected articled from the database and remove associated card from the display.
    1. View the article at the [Science Magazine](sciencemag.org) website.
    1. View the Note or Articles database objects.
+   1. Close the modal window.
    1. Add a user note for a selected article, the note is saved to the database and associated with the article.
        1. The note can be updated or deleted by the user.
    
