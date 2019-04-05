@@ -29,12 +29,12 @@ Try the [App](https://mighty-inlet-33800.herokuapp.com/).
 ## Getting Started on Your Own Machine
 1. Clone the [repo](https://github.com/dtries/News-Scraper.git) to your machine. 
 1. Navigate to the News-Scraper directory on your machine using GitBash or your terminal.
-1. Enter 'npm install' in GitBash or your terminal.
+1. Enter *npm install* in GitBash or your terminal.
    * This will install the proper js package files from a package JSON file.
 1. You will need to have mongodb installed and mongod running on your machine for local database use. See the [MongoDB](https://www.mongodb.com/) site for more information.
    
    ## Running on a Local Server
-   1. From within the News-Scrape folder in your terminal or GitBash enter 'node server.js'; this will open a local server on your machine. 
+   1. From within the News-Scrape folder in your terminal or GitBash, enter *node server.js*. this will open a local server on your machine. 
    1. Your terminal will display which port the app is using, in this case 3030.
    1. Open up a browser window and type in 'localhost:3030', this will open the homepage for the Scrape *Science* App.
      
