@@ -8,6 +8,8 @@ The task was to develop a full-stack web application with a Model View Controlle
 
 ## Site Overview 
 
+![](ScienceScrape.gif)
+
 <div align="left">
     <img src="/public/images/ScraperMain.png" width="400px" /></img> 
     <img src="/public/images/Scraper-Note.png" width="400px" /></img> 
