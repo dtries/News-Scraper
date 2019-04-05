@@ -15,7 +15,7 @@ The task was to develop a full-stack web application with a Model View Controlle
     <img src="/public/images/Scraper-Note.png" width="400px" /></img> 
 </div>
 <br>
-The primary functions of the site are contained within a single page and uses a modal to accept user text input. The site presents the user  an instinctual user interface and experience. As the database is populated with some news items already, the user lands on the site and immediately understands the actions possible. Choices are to interact via the  the navigation items,card style new items, or the footer items. 
+The primary functions of the site are contained within a single page and use a modal to accept user text input. The site presents the user  an instinctual user interface and experience. As the database is populated with some news items already, the user lands on the site and immediately understands the actions possible. Choices are to interact via the  the navigation items,card style new items, or the footer items. 
 
 Via the nav-bar, the user can see if new articles are available by clicking the **Scrape For Articles** button, clear the articles off the page, but not from the database, by clicking the **Clear Articles** button, or visit the science journal website by clicking the flat button labeled **The Journal**. Note that the Science label and atom icon on the upper left of the name bar can be clicked to reload the primary page.
 
