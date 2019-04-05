@@ -11,8 +11,8 @@ The task was to develop a full-stack web application with a Model View Controlle
 ![](ScienceScrape.gif)
 
 <div align="center">
-    <img align="left" src="/public/images/ScraperMain.png" width="400px" /></img> 
-    <img align="right" src="/public/images/Scraper-Note.png" width="400px" /></img> 
+    <img src="/public/images/ScraperMain.png" width="400px" /></img> 
+    <img src="/public/images/Scraper-Note.png" width="400px" /></img> 
 </div>
 <br>
 The primary functions of the site are contained within a single page and use a modal to accept user text input. The site presents the user an instinctual user interface and experience. As the database is populated with some news items already, when the user lands on the site and they immediately understand the actions possible. Choices are to interact via the navigation items, article card items, or the footer items. 
