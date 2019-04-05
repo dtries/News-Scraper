@@ -11,7 +11,7 @@ The task was to develop a full-stack web application with a Model View Controlle
 ![](ScienceScrape.gif)
 
 <div align="center">
-    <img style="margin-right:10%;" src="/public/images/ScraperMain.png" width="400px" /></img> 
+    <img src="/public/images/ScraperMain.png" width="400px" /></img> 
     <img src="/public/images/Scraper-Note.png" width="400px" /></img> 
 </div>
 <br>
