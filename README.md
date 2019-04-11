@@ -23,7 +23,7 @@ The article cards display a picture from the article and the title of the articl
 
 The footer area includes two user action items: **Notes Object** and **Articles Object**. Clicking on the **Notes Object** flat button will open a page which displays the notes objects in the database in JavaScript Object Notation (JSON) format (aka Parsed), doing so for the **Articles Object** flat button displays the articles objects in this same format. Note that a toggle option to view the object data in raw form is available in the upper right of these object display items. The user can click the back button on the browser to return to the primary page.
 
-## Run App Through Heroku Deployement
+## Run App Through Heroku Deployment
 Try the [App](https://mighty-inlet-33800.herokuapp.com/).
  
 ## Getting Started on Your Own Machine
